@@ -31,8 +31,8 @@ public class ProductREST {
 		List<Product> products =productDAO.findAll();
 		return ResponseEntity.ok(products);
 	}
-	
-	@RequestMapping(value = "{productoId}")
+	//cambio el @RequestMapping(value = "{productoId}") por:
+	@GetMapping(value = "/{productoId}")
 	public ResponseEntity<Product> getProductById(@PathVariable("productoId")Long productId) {
 		Optional<Product> optionalProduct =productDAO.findById(productId);
 		if(optionalProduct.isPresent()) {
